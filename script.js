@@ -257,7 +257,7 @@ window.onload = function() {
 
 
 
-  setTimeout(loop, 100);//loop();
+  
 }
 class Cross {
   constructor(x, y, z) {
