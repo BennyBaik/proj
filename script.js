@@ -238,8 +238,6 @@ window.onload = function() {
 
       } else if (cols[z] == "n") {
         new Snowflake(x - 100, 3, z - 107);
-      }else if (cols[z] == "p") {
-        new pizza(x - 100, 3, z - 107);
       }
 
     }
@@ -433,62 +431,7 @@ class Snowflake {
 
 }
 
-class pizza {
-  constructor(x, y, z) {
-    this.x = x;
-    this.y = y-2;
-    this.z = z;
-    ca.addEventListener("click", () => {
-      ca.setAttribute("opacity", 0);
-      cat = true;
-      console.log(this);
-    })
 
-    this.obj = document.createElement("a-box");
-    this.obj.setAttribute("width", 1);
-    this.obj.setAttribute("depth", 1);
-	 this.obj.setAttribute("height", 2);
-    this.flag = 0;
-
-
-    this.obj.setAttribute("clickable", "");
-
-    this.obj.addEventListener("click", () => {
-      this.flag += 1;
-      if (cat == true && this.flag < 100) {
-        a.setAttribute("opacity", 0);
-        b.setAttribute("opacity", 0);
-        c.setAttribute("position", { x: this.x, y: this.y + 2, z: this.z });
-        c.setAttribute('rotation', { x: 0, y: 270, z: 0 });
-        c.setAttribute("opacity", 1);
-        c.setAttribute("align", "center");
-        this.flag += 200;
-      } else if (this.flag == 1) {
-        a.setAttribute("position", { x: this.x, y: this.y + 2, z: this.z });
-        a.setAttribute('rotation', { x: 0, y: 270, z: 0 });
-        a.setAttribute("opacity", 1);
-        a.setAttribute("align", "center");
-        b.setAttribute("opacity", 0);
-
-      } else if (this.flag == 2) {
-        a.setAttribute("opacity", 0);
-        b.setAttribute("position", { x: this.x, y: this.y + 2, z: this.z });
-        b.setAttribute('rotation', { x: 0, y: 270, z: 0 });
-        b.setAttribute("align", "center");
-        b.setAttribute("opacity", 1);
-        this.flag += -2;
-
-      }
-      console.log(this);
-
-    })
-
-    this.obj.setAttribute("position", { x: this.x, y: this.y, z: this.z });
-    scene.append(this.obj);
-  }
-
-
-}
 
 function move() {
   Test.setAttribute("clickable", "");
