@@ -2,301 +2,297 @@
 <html>
 
 <head>
-<script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
-<script src="script.js"></script>
-<script src="player.js"></script>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script>
+  <script src="script.js"></script>
+  <script src="player.js"></script>
 </head>
 <!-- http://localhost:8099/  -->
 <body>
-<a-scene stats>  
-<a-assets>
-<img id = "city" src="sky.jpg">
-</a-assets>
-<a-sky color="#baf0ff"></a-sky>
-<a-sphere clickable id="c" position="57 1 39" color= "orange"></a-sphere>
-<a-entity id="cameraRig" movement-controls="fly: false; speed: 0.7" position="0 1 0">
-<a-camera id="camera" position="0 15 3" look-controls="pointerLockEnabled: true" kinema-body="radius: 0.5">
-<a-cursor raycaster="objects:[clickable]"></a-cursor>
-</a-camera>
-</a-entity>
-    <a-entity>
-      <a-box rotation="0 45 0" height= "2"width = ".5"></a-box>
-  </a-entity>
-   <a-entity>
+  <a-scene stats>  
+   <a-assets>
+   <img id = "city" src="sky.jpg">
+   </a-assets>
+      <a-sky color="#baf0ff"></a-sky>
+    <a-sphere clickable id="c" position="57 1 39" color= "orange"></a-sphere>
+    <a-entity id="cameraRig" movement-controls="fly: false; speed: 0.7" position="0 1 0">
+      <a-camera id="camera" position="0 15 3" look-controls="pointerLockEnabled: true" kinema-body="radius: 0.5">
+    <a-cursor raycaster="objects:[clickable]"></a-cursor>
+      </a-camera>
+    </a-entity>
+	<a-entity>
 	<a-box height="1.3" position = "0 2 " width=".5" depth=".5"color="orange"></a-box>
 	</a-entity>
-
-<a-entity id = "world" rotation="0 90 0" position="0 0 -8">
-<a-entity id = "car1" rotation="0 180 0" position="-9.5 0.1 0">
-<a-box id = "frunk" static-body position="0 0.7 -4" width = "2.5" depth = "1.5" color="Green"></a-box>
-<a-box id = "trunk" static-body position="0 0.7 -7" width = "2.5" depth = "1.5" color="Green"></a-box>
-<a-box id = "floor1" static-body position="-0.00 0.31 -5.2" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#2e4a25"></a-box>
-<a-box id = "floor2" static-body position="-0.00 0.31 -5.8" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#2e4a25"></a-box>
-<a-box id = "roof"  static-body position="0 2 -5.5" width = "2.5" depth = "1.5" height = "0.05" color="Green"></a-box>
-<a-box id = "l_door" position="1.22 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="Green" rotation = "0 0 90"></a-box>
-<a-box id = "r_door" position="-1.23 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="Green" rotation = "0 0 90"></a-box>
-<a-entity id = "left_wheels">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "left_wheels" position = "0 0 -3">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "right_wheels" position = "-2.1 0 -3">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "right_wheels" position = "-2.1 0 0">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-sphere id = "r_front_light" position="0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
-<a-sphere id = "l_front_light" position="-0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
-<a-entity id = "windows">
-<a-plane position = "1.29 1.6 -5.5" rotation="0 90 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
-<a-plane position = "-1.29 1.6 -5.5" rotation="0 270 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
-<a-plane position = "0 1.6 -4.74" rotation="0 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
-<a-plane position = "0 1.6 -6.26" rotation="180 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
-</a-entity>
-<a-entity id = "window_frame">
-<a-box position="1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "Green"></a-box>
-<a-box position="-1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "Green"></a-box>
-<a-box position="1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "Green"></a-box>
-<a-box position="-1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "Green"></a-box>
-</a-entity>
-<a-entity id = "r_back_light">
-<a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
-<a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
-<a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
-</a-entity>
-<a-entity id = "l_back_light" position = "2 0 0">
-<a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
-<a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
-<a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
-</a-entity>
-<a-box id = "left_handle" position="-1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
-<a-box id = "right_handle" position="1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
-<a-entity id = "f_licence_frame">
-<a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
-<a-box position="0 0.4 -3.24" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
-</a-entity>
-<a-entity id = "b_licence_frame" position = "0 0 -4.5">
-<a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
-<a-box position="0 0.4 -3.26" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
-</a-entity>
-<a-entity id = "steering_wheel">
-<a-cylinder position="0.7 1 -4.8" rotation = "0 90 135" radius = "0.05" height = "0.3" color = "black"></a-cylinder>
-<a-cylinder position="0.7 1.1 -4.9" rotation = "0 90 135" radius = "0.15" height = "0.01" color = "black"></a-cylinder>
-<a-cylinder position="0.7 1.11 -4.9" rotation = "0 90 135" radius = "0.1" height = "0.01" color = "white"></a-cylinder>
-</a-entity>
-</a-entity>
+      <a-entity id = "world" rotation="0 90 0" position="0 0 -8">
+    <a-entity id = "car1" rotation="0 180 0" position="-9.5 0.1 0">
+        <a-box id = "frunk" static-body position="0 0.7 -4" width = "2.5" depth = "1.5" color="Green"></a-box>
+        <a-box id = "trunk" static-body position="0 0.7 -7" width = "2.5" depth = "1.5" color="Green"></a-box>
+    <a-box id = "floor1" static-body position="-0.00 0.31 -5.2" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#2e4a25"></a-box>
+    <a-box id = "floor2" static-body position="-0.00 0.31 -5.8" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#2e4a25"></a-box>
+        <a-box id = "roof"  static-body position="0 2 -5.5" width = "2.5" depth = "1.5" height = "0.05" color="Green"></a-box>
+        <a-box id = "l_door" position="1.22 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="Green" rotation = "0 0 90"></a-box>
+        <a-box id = "r_door" position="-1.23 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="Green" rotation = "0 0 90"></a-box>
+        <a-entity id = "left_wheels">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "left_wheels" position = "0 0 -3">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "right_wheels" position = "-2.1 0 -3">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "right_wheels" position = "-2.1 0 0">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-sphere id = "r_front_light" position="0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
+        <a-sphere id = "l_front_light" position="-0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
+        <a-entity id = "windows">
+          <a-plane position = "1.29 1.6 -5.5" rotation="0 90 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
+          <a-plane position = "-1.29 1.6 -5.5" rotation="0 270 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
+          <a-plane position = "0 1.6 -4.74" rotation="0 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
+          <a-plane position = "0 1.6 -6.26" rotation="180 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
+        </a-entity>
+        <a-entity id = "window_frame">
+          <a-box position="1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "Green"></a-box>
+          <a-box position="-1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "Green"></a-box>
+          <a-box position="1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "Green"></a-box>
+          <a-box position="-1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "Green"></a-box>
+        </a-entity>
+        <a-entity id = "r_back_light">
+          <a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
+          <a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
+          <a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
+        </a-entity>
+        <a-entity id = "l_back_light" position = "2 0 0">
+          <a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
+          <a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
+          <a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
+        </a-entity>
+        <a-box id = "left_handle" position="-1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
+        <a-box id = "right_handle" position="1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
+        <a-entity id = "f_licence_frame">
+          <a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
+          <a-box position="0 0.4 -3.24" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
+        </a-entity>
+        <a-entity id = "b_licence_frame" position = "0 0 -4.5">
+          <a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
+          <a-box position="0 0.4 -3.26" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
+        </a-entity>
+        <a-entity id = "steering_wheel">
+          <a-cylinder position="0.7 1 -4.8" rotation = "0 90 135" radius = "0.05" height = "0.3" color = "black"></a-cylinder>
+          <a-cylinder position="0.7 1.1 -4.9" rotation = "0 90 135" radius = "0.15" height = "0.01" color = "black"></a-cylinder>
+          <a-cylinder position="0.7 1.11 -4.9" rotation = "0 90 135" radius = "0.1" height = "0.01" color = "white"></a-cylinder>
+      </a-entity>
+           </a-entity>
 
 <a-entity id = "car2" rotation="0 0 0" position="-16.5 0.1 0">
-<a-box id = "frunk" static-body position="0 0.7 -4" width = "2.5" depth = "1.5" color="#0f57d4"></a-box>
-<a-box id = "trunk" static-body position="0 0.7 -7" width = "2.5" depth = "1.5" color="#0f57d4"></a-box>
-<a-box id = "floor1" static-body position="-0.00 0.31 -5.2" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#2c446e"></a-box>
-<a-box id = "floor2" static-body position="-0.00 0.31 -5.8" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#2c446e"></a-box>
-<a-box id = "roof"  static-body position="0 2 -5.5" width = "2.5" depth = "1.5" height = "0.05" color="#0f57d4"></a-box>
-<a-box id = "l_door" position="1.22 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#0f57d4" rotation = "0 0 90"></a-box>
-<a-box id = "r_door" position="-1.23 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#0f57d4" rotation = "0 0 90"></a-box>
-<a-entity id = "left_wheels">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "left_wheels" position = "0 0 -3">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "right_wheels" position = "-2.1 0 -3">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "right_wheels" position = "-2.1 0 0">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-sphere id = "r_front_light" position="0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
-<a-sphere id = "l_front_light" position="-0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
-<a-entity id = "windows">
-<a-plane position = "1.29 1.6 -5.5" rotation="0 90 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
-<a-plane position = "-1.29 1.6 -5.5" rotation="0 270 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
-<a-plane position = "0 1.6 -4.74" rotation="0 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
-<a-plane position = "0 1.6 -6.26" rotation="180 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
-</a-entity>
-<a-entity id = "window_frame">
-<a-box position="1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#0f57d4"></a-box>
-<a-box position="-1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#0f57d4"></a-box>
-<a-box position="1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#0f57d4"></a-box>
-<a-box position="-1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#0f57d4"></a-box>
-</a-entity>
-<a-entity id = "r_back_light">
-<a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
-<a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
-<a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
-</a-entity>
-<a-entity id = "l_back_light" position = "2 0 0">
-<a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
-<a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
-<a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
-</a-entity>
-<a-box id = "left_handle" position="-1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
-<a-box id = "right_handle" position="1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
-<a-entity id = "f_licence_frame">
-<a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
-<a-box position="0 0.4 -3.24" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
-</a-entity>
-<a-entity id = "b_licence_frame" position = "0 0 -4.5">
-<a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
-<a-box position="0 0.4 -3.26" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
-</a-entity>
-<a-entity id = "steering_wheel">
-<a-cylinder position="0.7 1 -4.8" rotation = "0 90 135" radius = "0.05" height = "0.3" color = "black"></a-cylinder>
-<a-cylinder position="0.7 1.1 -4.9" rotation = "0 90 135" radius = "0.15" height = "0.01" color = "black"></a-cylinder>
-<a-cylinder position="0.7 1.11 -4.9" rotation = "0 90 135" radius = "0.1" height = "0.01" color = "white"></a-cylinder>
-</a-entity>
-</a-entity>
+        <a-box id = "frunk" static-body position="0 0.7 -4" width = "2.5" depth = "1.5" color="#0f57d4"></a-box>
+        <a-box id = "trunk" static-body position="0 0.7 -7" width = "2.5" depth = "1.5" color="#0f57d4"></a-box>
+    <a-box id = "floor1" static-body position="-0.00 0.31 -5.2" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#2c446e"></a-box>
+    <a-box id = "floor2" static-body position="-0.00 0.31 -5.8" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#2c446e"></a-box>
+        <a-box id = "roof"  static-body position="0 2 -5.5" width = "2.5" depth = "1.5" height = "0.05" color="#0f57d4"></a-box>
+        <a-box id = "l_door" position="1.22 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#0f57d4" rotation = "0 0 90"></a-box>
+        <a-box id = "r_door" position="-1.23 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#0f57d4" rotation = "0 0 90"></a-box>
+        <a-entity id = "left_wheels">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "left_wheels" position = "0 0 -3">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "right_wheels" position = "-2.1 0 -3">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "right_wheels" position = "-2.1 0 0">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-sphere id = "r_front_light" position="0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
+        <a-sphere id = "l_front_light" position="-0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
+        <a-entity id = "windows">
+          <a-plane position = "1.29 1.6 -5.5" rotation="0 90 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
+          <a-plane position = "-1.29 1.6 -5.5" rotation="0 270 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
+          <a-plane position = "0 1.6 -4.74" rotation="0 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
+          <a-plane position = "0 1.6 -6.26" rotation="180 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
+        </a-entity>
+        <a-entity id = "window_frame">
+          <a-box position="1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#0f57d4"></a-box>
+          <a-box position="-1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#0f57d4"></a-box>
+          <a-box position="1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#0f57d4"></a-box>
+          <a-box position="-1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#0f57d4"></a-box>
+        </a-entity>
+        <a-entity id = "r_back_light">
+          <a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
+          <a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
+          <a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
+        </a-entity>
+        <a-entity id = "l_back_light" position = "2 0 0">
+          <a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
+          <a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
+          <a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
+        </a-entity>
+        <a-box id = "left_handle" position="-1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
+        <a-box id = "right_handle" position="1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
+        <a-entity id = "f_licence_frame">
+          <a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
+          <a-box position="0 0.4 -3.24" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
+        </a-entity>
+        <a-entity id = "b_licence_frame" position = "0 0 -4.5">
+          <a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
+          <a-box position="0 0.4 -3.26" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
+        </a-entity>
+        <a-entity id = "steering_wheel">
+          <a-cylinder position="0.7 1 -4.8" rotation = "0 90 135" radius = "0.05" height = "0.3" color = "black"></a-cylinder>
+          <a-cylinder position="0.7 1.1 -4.9" rotation = "0 90 135" radius = "0.15" height = "0.01" color = "black"></a-cylinder>
+          <a-cylinder position="0.7 1.11 -4.9" rotation = "0 90 135" radius = "0.1" height = "0.01" color = "white"></a-cylinder>
+      </a-entity>
+           </a-entity>
 
 <a-entity id = "cop_car1" rotation="0 90 0" position="-56 0.1 32.5">
-<a-box id = "frunk" static-body position="0 0.7 -4" width = "2.5" depth = "1.5" color="#2a2b2e"></a-box>
-<a-box id = "trunk" static-body position="0 0.7 -7" width = "2.5" depth = "1.5" color="#2a2b2e"></a-box>
-<a-box id = "floor1" static-body position="0 0.31 -5.2" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#424242"></a-box>
-<a-box id = "floor2" static-body position="0 0.31 -5.8" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#424242"></a-box>
-<a-box id = "red_siren" static-body position="0.5 2.10 -5.5" rotation = "90 0 0" width = ".75" depth = "0.2" color="red"></a-box>
-<a-box id = "middle_siren" static-body position="0 2.10 -5.5" rotation = "90 0 0" width = ".25" depth = "0.2" color="black"></a-box>
-<a-box id = "blue_siren" static-body position="-0.5 2.10 -5.5" rotation = "90 0 0" width = ".75" depth = "0.2" color="blue"></a-box>
-<a-box id = "roof"  static-body position="0 2 -5.5" width = "2.5" depth = "1.5" height = "0.05" color="#e1e4e6"></a-box>
-<a-box id = "l_door" position="1.22 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#e1e4e6" rotation = "0 0 90"></a-box>
-<a-box id = "r_door" position="-1.23 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#e1e4e6" rotation = "0 0 90"></a-box>
-<a-entity id = "left_wheels">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "left_wheels" position = "0 0 -3">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "right_wheels" position = "-2.1 0 -3">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "right_wheels" position = "-2.1 0 0">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-sphere id = "r_front_light" position="0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
-<a-sphere id = "l_front_light" position="-0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
-<a-entity id = "windows">
-<a-plane position = "1.29 1.6 -5.5" rotation="0 90 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
-<a-plane position = "-1.29 1.6 -5.5" rotation="0 270 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
-<a-plane position = "0 1.6 -4.74" rotation="0 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
-<a-plane position = "0 1.6 -6.26" rotation="180 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
-</a-entity>
-<a-entity id = "window_frame">
-<a-box position="1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
-<a-box position="-1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
-<a-box position="1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
-<a-box position="-1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
-</a-entity>
-<a-entity id = "r_back_light">
-<a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
-<a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
-<a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
-</a-entity>
-<a-entity id = "l_back_light" position = "2 0 0">
-<a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
-<a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
-<a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
-</a-entity>
-<a-box id = "left_handle" position="-1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
-<a-box id = "right_handle" position="1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
-<a-entity id = "f_licence_frame">
-<a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
-<a-box position="0 0.4 -3.24" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
-</a-entity>
-<a-entity id = "b_licence_frame" position = "0 0 -4.5">
-<a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
-<a-box position="0 0.4 -3.26" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
-</a-entity>
-<a-entity id = "steering_wheel">
-<a-cylinder position="0.7 1 -4.8" rotation = "0 90 135" radius = "0.05" height = "0.3" color = "black"></a-cylinder>
-<a-cylinder position="0.7 1.1 -4.9" rotation = "0 90 135" radius = "0.15" height = "0.01" color = "black"></a-cylinder>
-<a-cylinder position="0.7 1.11 -4.9" rotation = "0 90 135" radius = "0.1" height = "0.01" color = "white"></a-cylinder>
-</a-entity>
-</a-entity>
+        <a-box id = "frunk" static-body position="0 0.7 -4" width = "2.5" depth = "1.5" color="#2a2b2e"></a-box>
+        <a-box id = "trunk" static-body position="0 0.7 -7" width = "2.5" depth = "1.5" color="#2a2b2e"></a-box>
+    <a-box id = "floor1" static-body position="0 0.31 -5.2" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#424242"></a-box>
+    <a-box id = "floor2" static-body position="0 0.31 -5.8" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#424242"></a-box>
+    <a-box id = "red_siren" static-body position="0.5 2.10 -5.5" rotation = "90 0 0" width = ".75" depth = "0.2" color="red"></a-box>
+    <a-box id = "middle_siren" static-body position="0 2.10 -5.5" rotation = "90 0 0" width = ".25" depth = "0.2" color="black"></a-box>
+    <a-box id = "blue_siren" static-body position="-0.5 2.10 -5.5" rotation = "90 0 0" width = ".75" depth = "0.2" color="blue"></a-box>
+        <a-box id = "roof"  static-body position="0 2 -5.5" width = "2.5" depth = "1.5" height = "0.05" color="#e1e4e6"></a-box>
+        <a-box id = "l_door" position="1.22 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#e1e4e6" rotation = "0 0 90"></a-box>
+        <a-box id = "r_door" position="-1.23 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#e1e4e6" rotation = "0 0 90"></a-box>
+        <a-entity id = "left_wheels">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "left_wheels" position = "0 0 -3">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "right_wheels" position = "-2.1 0 -3">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "right_wheels" position = "-2.1 0 0">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-sphere id = "r_front_light" position="0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
+        <a-sphere id = "l_front_light" position="-0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
+        <a-entity id = "windows">
+          <a-plane position = "1.29 1.6 -5.5" rotation="0 90 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
+          <a-plane position = "-1.29 1.6 -5.5" rotation="0 270 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
+          <a-plane position = "0 1.6 -4.74" rotation="0 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
+          <a-plane position = "0 1.6 -6.26" rotation="180 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
+        </a-entity>
+        <a-entity id = "window_frame">
+          <a-box position="1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
+          <a-box position="-1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
+          <a-box position="1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
+          <a-box position="-1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
+        </a-entity>
+        <a-entity id = "r_back_light">
+          <a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
+          <a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
+          <a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
+        </a-entity>
+        <a-entity id = "l_back_light" position = "2 0 0">
+          <a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
+          <a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
+          <a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
+        </a-entity>
+        <a-box id = "left_handle" position="-1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
+        <a-box id = "right_handle" position="1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
+        <a-entity id = "f_licence_frame">
+          <a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
+          <a-box position="0 0.4 -3.24" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
+        </a-entity>
+        <a-entity id = "b_licence_frame" position = "0 0 -4.5">
+          <a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
+          <a-box position="0 0.4 -3.26" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
+        </a-entity>
+        <a-entity id = "steering_wheel">
+          <a-cylinder position="0.7 1 -4.8" rotation = "0 90 135" radius = "0.05" height = "0.3" color = "black"></a-cylinder>
+          <a-cylinder position="0.7 1.1 -4.9" rotation = "0 90 135" radius = "0.15" height = "0.01" color = "black"></a-cylinder>
+          <a-cylinder position="0.7 1.11 -4.9" rotation = "0 90 135" radius = "0.1" height = "0.01" color = "white"></a-cylinder>
+      </a-entity>
+           </a-entity>
 
 <a-entity id = "cop_car2" rotation="0 270 0" position="56 0.1 27.5">
-<a-box id = "frunk" static-body position="0 0.7 -4" width = "2.5" depth = "1.5" color="#2a2b2e"></a-box>
-<a-box id = "trunk" static-body position="0 0.7 -7" width = "2.5" depth = "1.5" color="#2a2b2e"></a-box>
-<a-box id = "floor1" static-body position="0 0.31 -5.2" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#424242"></a-box>
-<a-box id = "floor2" static-body position="0 0.31 -5.8" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#424242"></a-box>
-<a-box id = "red_siren" static-body position="0.5 2.10 -5.5" rotation = "90 0 0" width = ".75" depth = "0.2" color="red"></a-box>
-<a-box id = "middle_siren" static-body position="0 2.10 -5.5" rotation = "90 0 0" width = ".25" depth = "0.2" color="black"></a-box>
-<a-box id = "blue_siren" static-body position="-0.5 2.10 -5.5" rotation = "90 0 0" width = ".75" depth = "0.2" color="blue"></a-box>
-<a-box id = "roof"  static-body position="0 2 -5.5" width = "2.5" depth = "1.5" height = "0.05" color="#e1e4e6"></a-box>
-<a-box id = "l_door" position="1.22 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#e1e4e6" rotation = "0 0 90"></a-box>
-<a-box id = "r_door" position="-1.23 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#e1e4e6" rotation = "0 0 90"></a-box>
-<a-entity id = "left_wheels">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "left_wheels" position = "0 0 -3">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "right_wheels" position = "-2.1 0 -3">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-entity id = "right_wheels" position = "-2.1 0 0">
-<a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
-<a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
-</a-entity>
-<a-sphere id = "r_front_light" position="0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
-<a-sphere id = "l_front_light" position="-0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
-<a-entity id = "windows">
-<a-plane position = "1.29 1.6 -5.5" rotation="0 90 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
-<a-plane position = "-1.29 1.6 -5.5" rotation="0 270 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
-<a-plane position = "0 1.6 -4.74" rotation="0 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
-<a-plane position = "0 1.6 -6.26" rotation="180 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
-</a-entity>
-<a-entity id = "window_frame">
-<a-box position="1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
-<a-box position="-1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
-<a-box position="1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
-<a-box position="-1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
-</a-entity>
-<a-entity id = "r_back_light">
-<a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
-<a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
-<a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
-</a-entity>
-<a-entity id = "l_back_light" position = "2 0 0">
-<a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
-<a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
-<a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
-</a-entity>
-<a-box id = "left_handle" position="-1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
-<a-box id = "right_handle" position="1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
-<a-entity id = "f_licence_frame">
-<a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
-<a-box position="0 0.4 -3.24" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
-</a-entity>
-<a-entity id = "b_licence_frame" position = "0 0 -4.5">
-<a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
-<a-box position="0 0.4 -3.26" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
-</a-entity>
-<a-entity id = "steering_wheel">
-<a-cylinder position="0.7 1 -4.8" rotation = "0 90 135" radius = "0.05" height = "0.3" color = "black"></a-cylinder>
-<a-cylinder position="0.7 1.1 -4.9" rotation = "0 90 135" radius = "0.15" height = "0.01" color = "black"></a-cylinder>
-<a-cylinder position="0.7 1.11 -4.9" rotation = "0 90 135" radius = "0.1" height = "0.01" color = "white"></a-cylinder>
-</a-entity>
-</a-entity>
+        <a-box id = "frunk" static-body position="0 0.7 -4" width = "2.5" depth = "1.5" color="#2a2b2e"></a-box>
+        <a-box id = "trunk" static-body position="0 0.7 -7" width = "2.5" depth = "1.5" color="#2a2b2e"></a-box>
+    <a-box id = "floor1" static-body position="0 0.31 -5.2" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#424242"></a-box>
+    <a-box id = "floor2" static-body position="0 0.31 -5.8" rotation = "90 0 0" width = "2.52" depth = "0.1" color="#424242"></a-box>
+    <a-box id = "red_siren" static-body position="0.5 2.10 -5.5" rotation = "90 0 0" width = ".75" depth = "0.2" color="red"></a-box>
+    <a-box id = "middle_siren" static-body position="0 2.10 -5.5" rotation = "90 0 0" width = ".25" depth = "0.2" color="black"></a-box>
+    <a-box id = "blue_siren" static-body position="-0.5 2.10 -5.5" rotation = "90 0 0" width = ".75" depth = "0.2" color="blue"></a-box>
+        <a-box id = "roof"  static-body position="0 2 -5.5" width = "2.5" depth = "1.5" height = "0.05" color="#e1e4e6"></a-box>
+        <a-box id = "l_door" position="1.22 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#e1e4e6" rotation = "0 0 90"></a-box>
+        <a-box id = "r_door" position="-1.23 0.7 -5.5" width = "1" depth = "1.5" height = "0.05" color="#e1e4e6" rotation = "0 0 90"></a-box>
+        <a-entity id = "left_wheels">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "left_wheels" position = "0 0 -3">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.06 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "right_wheels" position = "-2.1 0 -3">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-entity id = "right_wheels" position = "-2.1 0 0">
+          <a-cylinder position="1.05 0.4 -4" rotation = "0 0 90" radius = "0.4" height = "0.5" color = "black"></a-cylinder>
+          <a-cylinder position="1.04 0.4 -4" rotation = "0 0 90" radius = "0.2" height = "0.5" color = "white"></a-cylinder>
+        </a-entity>
+        <a-sphere id = "r_front_light" position="0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
+        <a-sphere id = "l_front_light" position="-0.7 0.9 -3.2" color = "yellow" radius = "0.15"></a-sphere>
+        <a-entity id = "windows">
+          <a-plane position = "1.29 1.6 -5.5" rotation="0 90 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
+          <a-plane position = "-1.29 1.6 -5.5" rotation="0 270 0" width = "1.5" height = "0.75" color = "#C6E2E3"></a-plane>
+          <a-plane position = "0 1.6 -4.74" rotation="0 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
+          <a-plane position = "0 1.6 -6.26" rotation="180 0 0" width = "2.5" height = "0.8" color = "#C6E2E3"></a-plane>
+        </a-entity>
+        <a-entity id = "window_frame">
+          <a-box position="1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
+          <a-box position="-1.26 1.6 -4.8" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
+          <a-box position="1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
+          <a-box position="-1.25 1.6 -6.18" rotation="0 0 0" width="0.01" height="0.8" depth = "0.15" color = "#e1e4e6"></a-box>
+        </a-entity>
+        <a-entity id = "r_back_light">
+          <a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
+          <a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
+          <a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
+        </a-entity>
+        <a-entity id = "l_back_light" position = "2 0 0">
+          <a-box position="-1 0.9 -7.75" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.3" color = "red"></a-box>
+          <a-box position="-1 0.68 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.15" color = "yellow"></a-box>
+          <a-box position="-1 0.75 -7.76" rotation="-90 0 0" width="0.25" height="0.01" depth = "0.05" color = "white"></a-box>
+        </a-entity>
+        <a-box id = "left_handle" position="-1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
+        <a-box id = "right_handle" position="1.23 1 -6" width="0.1" height="0.1" depth = "0.2" color = "black"></a-box>
+        <a-entity id = "f_licence_frame">
+          <a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
+          <a-box position="0 0.4 -3.24" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
+        </a-entity>
+        <a-entity id = "b_licence_frame" position = "0 0 -4.5">
+          <a-box position="0 0.4 -3.25" width="0.5" height="0.3" depth = "0.01" color = "white"></a-box>
+          <a-box position="0 0.4 -3.26" width="0.4" height="0.2" depth = "0.01" color = "black"></a-box>
+        </a-entity>
+        <a-entity id = "steering_wheel">
+          <a-cylinder position="0.7 1 -4.8" rotation = "0 90 135" radius = "0.05" height = "0.3" color = "black"></a-cylinder>
+          <a-cylinder position="0.7 1.1 -4.9" rotation = "0 90 135" radius = "0.15" height = "0.01" color = "black"></a-cylinder>
+          <a-cylinder position="0.7 1.11 -4.9" rotation = "0 90 135" radius = "0.1" height = "0.01" color = "white"></a-cylinder>
+      </a-entity>
+           </a-entity>
 
-<!-- border -->
+      <!-- border -->
 
-<a-box static-body rotation="-90 0 0" width="200" height="200" position = "0 -0.5 0" color="#7BC8A4"></a-box> 
+      <a-box static-body rotation="-90 0 0" width="200" height="200" position = "0 -0.5 0" color="#7BC8A4"></a-box> 
 
 <a-text value = "‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ Reload this page"  color= " black"  scale="24 24 24" rotation = "0 90 0"   position= "-100 -20 50"></a-text>
 <a-text value = "‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎  ‎ ‎ ‎ Reload this page"  color= " black"  scale="24 24 24" rotation = "0 -90 0"  position= "100 -20 -50"></a-text>
@@ -308,18 +304,18 @@
 <a-text value = "   You're not supposed to be here"  color= " black"  scale="24 24 24" rotation = "0 0 0"    position= "-50 -10 -100"></a-text>
 <a-text value = "   You're not supposed to be here"  color= " black"  scale="24 24 24" rotation = "0 -180 0" position= "50 -10 100"></a-text>
 
-<a-box static-body rotation="-90 0 0" width="200" height="200"   position = "0 -24 0"></a-box>
-<a-box  rotation="-90 0 0" width="201" height="201"   position = "0 -1 0"></a-box>
-<a-box static-body depth= "0.7" width ="200" height ="-26" position="-100 -14 0" rotation=" 0 90 0 "   ></a-box>
-<a-box  static-body depth= "0.7" width ="200" height ="-26" position="100 -14 0" rotation=" 0 90 0 "   ></a-box>
-<a-box static-body depth= "0.7" width ="200" height ="-26" position="0 -14 -100" rotation=" 0 0 0 " ></a-box>
-<a-box  static-body depth= "0.7" width ="200" height ="-26" position="0 -14 100" rotation=" 0 0 0 " ></a-box>
+  <a-box static-body rotation="-90 0 0" width="200" height="200"   position = "0 -24 0"></a-box>
+  <a-box  rotation="-90 0 0" width="201" height="201"   position = "0 -1 0"></a-box>
+  <a-box static-body depth= "0.7" width ="200" height ="-26" position="-100 -14 0" rotation=" 0 90 0 "   ></a-box>
+    <a-box  static-body depth= "0.7" width ="200" height ="-26" position="100 -14 0" rotation=" 0 90 0 "   ></a-box>
+  <a-box " static-body depth= "0.7" width ="200" height ="-26" position="0 -14 -100" rotation=" 0 0 0 " ></a-box>
+  <a-box  static-body depth= "0.7" width ="200" height ="-26" position="0 -14 100" rotation=" 0 0 0 " ></a-box>
 
 
-<a-box src= "#city" static-body depth= "0.7" width ="200" height ="50" position="-100 25 0" rotation=" 0 90 0 " opacity="12" color="white" ></a-box>
-<a-box src= "#city" static-body depth= "0.7" width ="200" height ="50" position="100 25 0" rotation=" 0 90 0 " opacity="12" color="white" ></a-box>
-<a-box src= "#city" static-body depth= "0.7" width ="200" height ="50" position="0 25 -100" rotation=" 0 0 0 " opacity="12" color="white"></a-box>
-<a-box src= "#city" static-body depth= "0.7" width ="200" height ="50" position="0 25 100" rotation=" 0 0 0 " opacity="12" color="white"></a-box>
+  <a-box src= "#city" static-body depth= "0.7" width ="200" height ="50" position="-100 25 0" rotation=" 0 90 0 " opacity="12" color="white" ></a-box>
+    <a-box src= "#city" static-body depth= "0.7" width ="200" height ="50" position="100 25 0" rotation=" 0 90 0 " opacity="12" color="white" ></a-box>
+  <a-box src= "#city" static-body depth= "0.7" width ="200" height ="50" position="0 25 -100" rotation=" 0 0 0 " opacity="12" color="white"></a-box>
+  <a-box src= "#city" static-body depth= "0.7" width ="200" height ="50" position="0 25 100" rotation=" 0 0 0 " opacity="12" color="white"></a-box>
 
 
 
@@ -335,285 +331,285 @@
 </a-entity>
 
 
-<!-- house2 -->	<a-entity position = "-5.645 0 -2" rotation = "0 180 0">
+    <!-- house2 -->	<a-entity position = "-5.645 0 -2" rotation = "0 180 0">
 <a-box wireframe="true" width ="3" height ="3" depth="1" position="0 1.5 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box static-body="false" wireframe="true" width ="3" height ="3" depth="1" position="3 1.5 0" opacity="0" color = "pink">
-<a-box   depth="0.09" position ="0.4 0 0.14" rotation= "0 75 0" color="#5c3f05"></a-box>
-<a-box   depth="0.09" position ="0.4 -1 0.14" rotation= "0 75 0" color="#5c3f05"></a-box>
-<a-sphere position= "0.32 -0.5 0.42" radius="0.12" color= "yellow"></a-sphere>
-<a-box depth= "0.4" position = "0 0 0" opacity="0" color="#000000"></a-box>
-<a-box  depth= "0.7" position="0 -1 0"  color="#000000" opacity="0"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box static-body="false" wireframe="true" width ="3" height ="3" depth="1" position="3 1.5 0" opacity="0" color = "pink">
+        <a-box   depth="0.09" position ="0.4 0 0.14" rotation= "0 75 0" color="#5c3f05"></a-box>
+        <a-box   depth="0.09" position ="0.4 -1 0.14" rotation= "0 75 0" color="#5c3f05"></a-box>
+        <a-sphere position= "0.32 -0.5 0.42" radius="0.12" color= "yellow"></a-sphere>
+        <a-box depth= "0.4" position = "0 0 0" opacity="0" color="#000000"></a-box>
+    <a-box  depth= "0.7" position="0 -1 0"  color="#000000" opacity="0"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
 
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="6 1.5 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="-1.5 1.5 1" rotation="0 90 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="-1.5 1.5 4" rotation="0 90 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="0 1.5 5" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="3 1.5 5" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="6 1.5 5" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="7.5 1.5 4" rotation="0 90 0" opacity="0">
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -3" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -2" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -1" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 0"  color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -4" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -5" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -6" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -7" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -8" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -9" color= "#808183"> </a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="6 1.5 0" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="-1.5 1.5 1" rotation="0 90 0" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="-1.5 1.5 4" rotation="0 90 0" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="0 1.5 5" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="3 1.5 5" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="6 1.5 5" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="7.5 1.5 4" rotation="0 90 0" opacity="0">
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -3" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -2" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -1" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 0"  color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -4" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -5" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -6" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -7" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -8" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -9" color= "#808183"> </a-box>
 
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -3"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -2"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -1"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -0.2" color= "brown"> </a-box>
-<a-box  deph= "1" width="5.7" height="0.001" position= "1.5 -1.49 -4" color= "brown"> </a-box>
-<a-box  deph= "1" width="5.7" height="0.001" position= "1.5 -1.49 -5" color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -6"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -7"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -8"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -8.5" color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -3"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -2"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -1"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -0.2" color= "brown"> </a-box>
+        <a-box  deph= "1" width="5.7" height="0.001" position= "1.5 -1.49 -4" color= "brown"> </a-box>
+        <a-box  deph= "1" width="5.7" height="0.001" position= "1.5 -1.49 -5" color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -6"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -7"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -8"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -8.5" color= "brown"> </a-box>
 
-<a-box static-body depth= "0.7" position="-1 0 0" color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="7.5 1.5 1" rotation="0 90 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
+        <a-box static-body depth= "0.7" position="-1 0 0" color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="7.5 1.5 1" rotation="0 90 0" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
 
-</a-entity>
+        </a-entity>
 
-<!-- house1 -->	<a-entity position = "5.645 0 -2" rotation = "0 180 0">
+    <!-- house1 -->	<a-entity position = "5.645 0 -2" rotation = "0 180 0">
 <a-box wireframe="true" width ="3" height ="3" depth="1" position="0 1.5 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box static-body="false" wireframe="true" width ="3" height ="3" depth="1" position="3 1.5 0" opacity="0" color = "pink">
-<a-box depth="0.09" position ="0.4 0 0.14" rotation= "0 75 0" color="#5c3f05"></a-box>
-<a-box depth="0.09" position ="0.4 -1 0.14" rotation= "0 75 0" color="#5c3f05"></a-box>
-<a-sphere position= "0.32 -0.5 0.42" radius="0.12" color= "yellow"></a-sphere>
-<a-box depth= "0.4" position = "0 0 0" opacity="0" color="#000000"></a-box>
-<a-box  depth= "0.7" position="0 -1 0"  color="#000000" opacity="0"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box static-body="false" wireframe="true" width ="3" height ="3" depth="1" position="3 1.5 0" opacity="0" color = "pink">
+        <a-box depth="0.09" position ="0.4 0 0.14" rotation= "0 75 0" color="#5c3f05"></a-box>
+        <a-box depth="0.09" position ="0.4 -1 0.14" rotation= "0 75 0" color="#5c3f05"></a-box>
+        <a-sphere position= "0.32 -0.5 0.42" radius="0.12" color= "yellow"></a-sphere>
+        <a-box depth= "0.4" position = "0 0 0" opacity="0" color="#000000"></a-box>
+    <a-box  depth= "0.7" position="0 -1 0"  color="#000000" opacity="0"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
 
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="6 1.5 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="-1.5 1.5 1" rotation="0 90 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="-1.5 1.5 4" rotation="0 90 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="0 1.5 5" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="3 1.5 5" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="6 1.5 5" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="7.5 1.5 4" rotation="0 90 0" opacity="0">
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -3" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -2" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -1" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 0"  color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -4" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -5" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -6" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -7" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -8" color= "#808183"> </a-box>
-<a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -9" color= "#808183"> </a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="6 1.5 0" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="-1.5 1.5 1" rotation="0 90 0" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="-1.5 1.5 4" rotation="0 90 0" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="0 1.5 5" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="3 1.5 5" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="6 1.5 5" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="7.5 1.5 4" rotation="0 90 0" opacity="0">
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -3" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -2" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -1" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 0"  color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -4" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -5" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -6" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -7" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -8" color= "#808183"> </a-box>
+        <a-box static-body deph= "0.2" length= "123" width="6" height="0.2" position= "1.5 1.5 -9" color= "#808183"> </a-box>
 
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -3"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -2"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -1"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -0.2" color= "brown"> </a-box>
-<a-box  deph= "1" width="5.7" height="0.001" position= "1.5 -1.49 -4"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5.7" height="0.001" position= "1.5 -1.49 -5"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -6"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -7"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -8"   color= "brown"> </a-box>
-<a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -8.5" color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -3"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -2"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -1"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -0.2" color= "brown"> </a-box>
+        <a-box  deph= "1" width="5.7" height="0.001" position= "1.5 -1.49 -4"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5.7" height="0.001" position= "1.5 -1.49 -5"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -6"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -7"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -8"   color= "brown"> </a-box>
+        <a-box  deph= "1" width="5" height="0.001" position= "1.5 -1.49 -8.5" color= "brown"> </a-box>
 
-<a-box static-body depth= "0.7" position="-1 0 0" color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
-<a-box wireframe="true" width ="3" height ="3" depth="1" position="7.5 1.5 1" rotation="0 90 0" opacity="0">
-<a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
-<a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
-<a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
-<a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
-</a-box>
+        <a-box static-body depth= "0.7" position="-1 0 0" color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
+        <a-box wireframe="true" width ="3" height ="3" depth="1" position="7.5 1.5 1" rotation="0 90 0" opacity="0">
+        <a-box static-body depth= "0.7" position="-1 0 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.4" position = "0 0 0" opacity="0.5" color="gray"></a-box>
+        <a-box static-body depth= "0.7" position="1 0 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="0 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 1 0"   color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="-1 -1 0" color="#488bb5"></a-box> 
+        <a-box static-body depth= "0.7" position="0 -1 0"  color="#488bb5"></a-box>
+        <a-box static-body depth= "0.7" position="1 -1 0"  color="#488bb5"></a-box>
+        </a-box>
 
-</a-entity>
+        </a-entity>
 
 <a-entity> <!-- building 1 -->
 
@@ -639,9 +635,13 @@
 
 <a-box static-body clickable animation__click="property: position; to: 24 1 -6.49 ;dir: alternate; loop: 1; startEvents: click;dur: 2000" id="test" depth= ".2" width = "2" height = "2" position="24 1 -4.5" rotation = "0 90 0" color="white" src= "wood.jpg"></a-box>
 <a-text  position="24.4 2.5 -3.4" value="click the door to open" color= "black "rotation = "0 90 0" ></a-text> 
-<a-text  id = "text" value = "Could you please find my cat? I think i lost him in the park somewhere." position="0 2 0" color = "black" opacity ="0"></a-text>
-<a-text id = "two" value = "Have you found him yet?!" position = "0 2 .1" color = "black" opacity = "0"></a-text>
-<a-text id = "3" value = "Thank you so much for finding my cat! Here have this." position = "0 2 .1" color = "black" opacity = "0"></a-text>
+        <a-text  id = "text" value = "Could you please find my cat? I think i lost him in the park somewhere." position="0 2 0" color = "black" opacity ="0"></a-text>
+        <a-text id = "two" value = "Have you found him yet?!" position = "0 2 .1" color = "black" opacity = "0"></a-text>
+        <a-text id = "3" value = "Thank you so much for finding my cat! Here have this." position = "0 2 .1" color = "black" opacity = "0"></a-text>
+		
+		 <a-text  id = "a" value = "Hey  if you deliver this for me then ill give ya some change." position="0 2 0" color = "black" opacity ="0"></a-text>
+        <a-text id = "b" value = "Thanks kid heres what i promised." position = "0 2 .1" color = "black" opacity = "0"></a-text>
+       
 
 <a-entity wireframe="true" positon = "0 40 0"> <!-- building 2 -->
 
@@ -671,8 +671,8 @@
 
 </a-box>
 </a-entity>
-
-</a-scene>
+<a-box color = "black" depth="210" width = "9" position = "29.8 -.49 -7.26"></a-box>
+  </a-scene>
 </body>
 
 
