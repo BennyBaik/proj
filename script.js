@@ -1,5 +1,5 @@
 let rnd = (l, u) => Math.random() * (u - l) + l;
-let scene, camera, te, Text, cat, Test, ca;
+let scene, camera, te, Text, cat, Test, ca, t1,t2;
 let crossroad = [], corner = [];
 let map = [
   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
@@ -124,21 +124,21 @@ let map = [
   "----------------------------------------------------------------------------------------------------------c-r-r-r-r-r-c--------------------------------------------------------------------------------",
   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
   "----------------------------------------------------------------------------------------------------------c-r-r-r-r-r-c--------------------------------------------------------------------------------",
-  "----------------------------------------------------------------------------------------------------------------------------------n----------------------------------------------------------------------",
+  "-------------------------------------------------------------------------------------------------p---------------------------------n----------------------------------------------------------------------",
   "----------------------------------------------------------------------------------------------------------c-r-r-r-r-r-c--------------------------------------------------------------------------------",
   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
   "c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-x-x-x-x-x-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c",
   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
-  "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-x-rrrrrrrrr-x-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-  "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr---rrrrrrrrr---rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-  "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-x-rrrrrrrrr-x-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-  "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr---rrrrrrrrr---rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-  "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-x-rrrrrrrrr-x-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-  "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr---rrrrrrrrr---rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
-  "rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr-x-rrrrrrrrr-x-rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr",
+  "----------------------------------------------------------------------------------------------------------x-rrrrrrrrr-x--------------------------------------------------------------------------------",
+  "------------------------------------------------------------------------------------------------------------rrrrrrrrr----------------------------------------------------------------------------------",
+  "----------------------------------------------------------------------------------------------------------x-rrrrrrrrr-x--------------------------------------------------------------------------------",
+  "------------------------------------------------------------------------------------------------------------rrrrrrrrr----------------------------------------------------------------------------------",
+  "----------------------------------------------------------------------------------------------------------x-rrrrrrrrr-x--------------------------------------------------------------------------------",
+  "------------------------------------------------------------------------------------------------------------rrrrrrrrr----------------------------------------------------------------------------------",
+  "----------------------------------------------------------------------------------------------------------x-rrrrrrrrr-x--------------------------------------------------------------------------------",
   "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
   "c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c-c",
-   "w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w-----w--w--w--w--w--w-----w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w",
+  "w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w-----w--w--w--w--w--w-----w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w--w",
   "w----------------------------------------------------------------------------------------------------d-d------------------d-d-------------------------------------------------------------------------w",
   "w-------------------t-----------------t--------------------------------------------------------------d-d-----t----t---t---d-d---t---------------------------------t-----------------------------------w",
   "w--t-------------------------------------------t-----------------t------------------t----------------d-d------------------d-d-------------------t-----------------------------------------------------w",
@@ -210,6 +210,8 @@ window.onload = function() {
   three = document.getElementById("3");
   Text = document.getElementById("text");
   Test = document.getElementById("test");
+  t1 = document.getElementById("a");
+  t2 = document.getElementById("b");
   Test.setAttribute("clickable", "");
   ca = document.getElementById("c");
   ca.setAttribute("clickable", "");
@@ -235,6 +237,8 @@ window.onload = function() {
 
       } else if (cols[z] == "n") {
         new Snowflake(x - 100, 3, z - 107);
+      } else if (cols[z] == "p") {
+        new pizza(x - 100, 3, z - 107);
       }
 
     }
@@ -257,7 +261,7 @@ window.onload = function() {
 
 
 
-  
+  setTimeout(loop, 100);//loop();
 }
 class Cross {
   constructor(x, y, z) {
@@ -427,6 +431,62 @@ class Snowflake {
 
 
 }
+
+class pizza {
+  constructor(x, y, z) {
+    this.x = x;
+    this.y = y-2;
+    this.z = z;
+   
+    
+
+    this.obj = document.createElement("a-box");
+    this.obj.setAttribute("width", 1);
+    this.obj.setAttribute("depth", 1);
+	 this.obj.setAttribute("height", 2);
+    this.flag = 0;
+
+
+    this.obj.setAttribute("clickable", "");
+
+    this.obj.addEventListener("click", () => {
+      this.flag += 1;
+      if (this.flag > 100) {
+       
+        t1.setAttribute("opacity", 0);
+        t2.setAttribute("position", { x: this.x, y: this.y + 2, z: this.z });
+        t2.setAttribute('rotation', { x: 0, y: 270, z: 0 });
+        t2.setAttribute("opacity", 1);
+        t2.setAttribute("align", "center");
+        this.flag += 200;
+      } else if (this.flag == 1) {
+        t1.setAttribute("position", { x: this.x-2, y: this.y , z: this.z });
+        t1.setAttribute('rotation', { x: 0, y: 270, z: 0 });
+        t1.setAttribute("opacity", 1);
+        t1.setAttribute("align", "center");
+        t2.setAttribute("opacity", 0);
+
+      } else if (this.flag == 2) {
+        t1.setAttribute("opacity", 0);
+        t2.setAttribute("position", { x: this.x -2, y: this.y , z: this.z });
+        t2.setAttribute('rotation', { x: 0, y: 270, z: 0 });
+        t2.setAttribute("align", "center");
+        t2.setAttribute("opacity", 1);
+        this.flag += -2;
+
+      }
+      console.log(this);
+
+    })
+
+    this.obj.setAttribute("position", { x: this.x, y: this.y, z: this.z });
+    scene.append(this.obj);
+  }
+
+
+}
+
+
 function move() {
   Test.setAttribute("clickable", "");
   Test.addEventListener("click", () => {
@@ -440,4 +500,3 @@ function move() {
   console.log(this);
   window.requestAnimationFrame(move);
 } 
-
